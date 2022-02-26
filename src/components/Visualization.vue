@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-for="item in items" :key="item.id">
+  <div class="v-container">
+    <div v-for="item in items" :key="item.id" class="d-inline-flex">
       <Edge v-if="item.type === 'link'" :item="item" />
       <Vertex v-else :item="item" />
     </div>
@@ -12,6 +12,8 @@ import Edge from "./ui/Edge.vue";
 
 /**
  * Combine vertices and edges into a list.
+ * 
+ * n.b. This will only work for linear presentation.
  * 
  * e.g. [
 			{

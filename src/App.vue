@@ -35,18 +35,18 @@
 
     <v-main>
       <Payload @payload-change="payloadChange" />
-      <Graph v-if="payload" :payload="payload" />
+      <Visualization v-if="payload" :payload="payload" />
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Payload from "./components/Payload.vue";
-import Graph from "./components/Graph.vue";
+import Visualization from "./components/Visualization.vue";
 
 export default {
   name: "App",
-  components: { Payload, Graph },
+  components: { Payload, Visualization },
   data: () => ({
     payload: null,
   }),

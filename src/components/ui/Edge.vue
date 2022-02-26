@@ -1,5 +1,7 @@
 <template>
-  <div :class="item.type">{{ item.label }}</div>
+  <div :class="'type-' + item.type" class="d-flex justify-center align-center">
+    {{ item.label }}
+  </div>
 </template>
 <script>
 export default {
@@ -13,10 +15,10 @@ export default {
 };
 </script>
 <style>
-.link {
+.type-link {
   border-top: solid 1px black;
   padding: 0 1em;
-  margin-top: 2.5em;
+  /* margin-top: 2.5em; */
   height: 2em;
 }
 </style>
