@@ -34,8 +34,16 @@
     </v-app-bar>
 
     <v-main>
-      <Payload @payload-change="payloadChange" />
-      <Visualization v-if="payload" :payload="payload" />
+      <v-container class="mt-12">
+        <v-row>
+          <v-col class="col-4">
+            <Payload @payload-change="payloadChange" />
+          </v-col>
+          <v-col class="col-8">
+            <Visualization v-if="payload" :payload="payload" />
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>

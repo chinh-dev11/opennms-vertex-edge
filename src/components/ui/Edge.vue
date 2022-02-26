@@ -1,5 +1,5 @@
 <template>
-  <div :class="'type-' + item.type" class="d-flex justify-center align-center">
+  <div :class="'type-' + item.type">
     {{ item.label }}
   </div>
 </template>
@@ -18,7 +18,6 @@ export default {
 .type-link {
   border-top: solid 1px black;
   padding: 0 1em;
-  /* margin-top: 2.5em; */
-  height: 2em;
+  margin-top: 2.5em;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="v-container">
-    <div v-for="item in items" :key="item.id" class="d-inline-flex">
+  <div class="d-inline-flex mt-4">
+    <div v-for="item in items" :key="item.id" class="d-inline-block">
       <Edge v-if="item.type === 'link'" :item="item" />
       <Vertex v-else :item="item" />
     </div>
@@ -12,9 +12,6 @@ import Edge from "./ui/Edge.vue";
 
 /**
  * Combine vertices and edges into a list.
- * 
- * n.b. This will only work for linear presentation.
- * 
  * e.g. [
 			{
 				"id": "n1",
@@ -35,6 +32,8 @@ import Edge from "./ui/Edge.vue";
 			},
 			...
 		]
+
+ * n.b. This will only work for linear presentation.
  *
  * @param {Array} vertices List containing nodes and alarms
  * @param {Array} edges List containing links
@@ -64,15 +63,6 @@ export default {
   computed: {
     items() {
       return new Set(verticesLinkList(this.payload)); // use Set() to remove duplicate
-      /* try {
-        return new Set(verticesLinkList(this.payload)); // use Set() to remove duplicate
-      } catch (err) {
-        // show error: valid but empty payload or missing edges or vertices attribute
-        // safeguard: should never get to this
-        console.warn("Graph", err);
-      }
-
-      return []; */
     },
   },
 };
