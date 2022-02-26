@@ -34,40 +34,31 @@
     </v-app-bar>
 
     <v-main>
-      <Vertex :obj="node" />
-      <Vertex :obj="alarm" />
-      <Edge :obj="link" />
+      <Payload @payload-change="payloadChange" />
+      <Graph :payload="payload" />
+      <!-- <Vertex :payload="vertices[0]" /> -->
+      <!-- <Edge :payload="edges[0]" /> -->
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Vertex from "./components/ui/Vertex.vue";
-import Edge from "./components/ui/Edge.vue";
+import Payload from "./components/Payload.vue";
+import Graph from "./components/Graph.vue";
+// import Vertex from "./components/ui/Vertex.vue";
+// import Edge from "./components/ui/Edge.vue";
 
 export default {
   name: "App",
-
-  components: { Vertex, Edge },
-
+  components: { Payload, Graph },
+  // components: { Payload, Vertex, Edge },
   data: () => ({
-    node: {
-      id: "n1",
-      label: "Node 1",
-      type: "node",
-    },
-    alarm: {
-      id: "a1",
-      label: "Alarm 1",
-      type: "alarm",
-    },
-    link: {
-      id: "e1",
-      label: "edge n1-n2",
-      type: "link",
-      source_id: "n1",
-      target_id: "n2",
-    },
+    payload: {},
   }),
+  methods: {
+    payloadChange(value) {
+      this.payload = JSON.parse(value);
+    },
+  },
 };
 </script>

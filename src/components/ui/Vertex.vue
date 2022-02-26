@@ -1,11 +1,11 @@
 <template>
-  <div :class="obj.type">{{ obj.label }}</div>
+  <div :class="item.type">{{ item.label }}</div>
 </template>
 <script>
 export default {
   name: "Vertex",
   props: {
-    obj: {
+    item: {
       type: Object,
       default: () => ({}),
     },
