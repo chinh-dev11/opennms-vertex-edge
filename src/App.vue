@@ -33,18 +33,41 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main> </v-main>
+    <v-main>
+      <Vertex :obj="node" />
+      <Vertex :obj="alarm" />
+      <Edge :obj="link" />
+    </v-main>
   </v-app>
 </template>
 
 <script>
+import Vertex from "./components/ui/Vertex.vue";
+import Edge from "./components/ui/Edge.vue";
+
 export default {
   name: "App",
 
-  components: {},
+  components: { Vertex, Edge },
 
   data: () => ({
-    //
+    node: {
+      id: "n1",
+      label: "Node 1",
+      type: "node",
+    },
+    alarm: {
+      id: "a1",
+      label: "Alarm 1",
+      type: "alarm",
+    },
+    link: {
+      id: "e1",
+      label: "edge n1-n2",
+      type: "link",
+      source_id: "n1",
+      target_id: "n2",
+    },
   }),
 };
 </script>
