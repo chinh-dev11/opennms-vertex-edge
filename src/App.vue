@@ -35,9 +35,7 @@
 
     <v-main>
       <Payload @payload-change="payloadChange" />
-      <Graph :payload="payload" />
-      <!-- <Vertex :payload="vertices[0]" /> -->
-      <!-- <Edge :payload="edges[0]" /> -->
+      <Graph v-if="payload" :payload="payload" />
     </v-main>
   </v-app>
 </template>
@@ -45,19 +43,22 @@
 <script>
 import Payload from "./components/Payload.vue";
 import Graph from "./components/Graph.vue";
-// import Vertex from "./components/ui/Vertex.vue";
-// import Edge from "./components/ui/Edge.vue";
 
 export default {
   name: "App",
   components: { Payload, Graph },
-  // components: { Payload, Vertex, Edge },
   data: () => ({
-    payload: {},
+    payload: null,
   }),
   methods: {
     payloadChange(value) {
-      this.payload = JSON.parse(value);
+      try {
+        this.payload = JSON.parse(value);
+      } catch (err) {
+        //show error: invalid JSON format
+        // console.warn("App", err);
+        this.payload = null;
+      }
     },
   },
 };
