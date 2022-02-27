@@ -23,22 +23,22 @@ export default {
   }),
   methods: {
     inputValue(value) {
+      let payload;
+
       if (!value) {
+        payload = {};
         this.invalidJsonFormat = [];
-        return;
+      } else {
+        try {
+          payload = JSON.parse(value);
+          this.invalidJsonFormat = [];
+        } catch (err) {
+          payload = {};
+          this.invalidJsonFormat = [this.invalidJsonFormatMessage];
+        }
       }
 
-      let payload = null;
-
-      try {
-        payload = JSON.parse(value);
-        this.invalidJsonFormat = [];
-      } catch (err) {
-        payload = null;
-        this.invalidJsonFormat = [this.invalidJsonFormatMessage];
-      } finally {
-        this.$emit("payload-change", payload);
-      }
+      this.$emit("payload-change", payload);
     },
   },
 };

@@ -14,7 +14,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .type-link {
   border-top: solid 1px black;
   padding: 0 1em;
