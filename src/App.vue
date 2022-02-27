@@ -33,18 +33,35 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main> </v-main>
+    <v-main>
+      <v-container mt-12>
+        <v-row>
+          <v-col cols="12" sm="5">
+            <Payload @payload-change="payloadChange" />
+          </v-col>
+          <v-col cols="12" sm="7">
+            <Visualization :payload="payload" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
 <script>
+import Payload from "./components/Payload.vue";
+import Visualization from "./components/Visualization.vue";
+
 export default {
   name: "App",
-
-  components: {},
-
+  components: { Payload, Visualization },
   data: () => ({
-    //
+    payload: null,
   }),
+  methods: {
+    payloadChange(value) {
+      this.payload = value;
+    },
+  },
 };
 </script>
