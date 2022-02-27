@@ -1,6 +1,6 @@
 <template>
-  <div class="d-inline-flex mt-4">
-    <div v-for="item in items" :key="item.id" class="d-inline-block">
+  <div class="d-flex flex-wrap mt-4">
+    <div v-for="item in items" :key="item.id" class="mb-3">
       <Edge v-if="item.type === 'link'" :item="item" />
       <Vertex v-else :item="item" />
     </div>
