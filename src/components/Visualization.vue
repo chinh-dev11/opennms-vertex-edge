@@ -12,7 +12,8 @@ import Edge from "./ui/Edge.vue";
 
 /**
  * Combine vertices and edges into a list.
- * e.g. [
+ * e.g. 
+ *  [
 			{
 				"id": "n1",
 				"label": "Node 1",
@@ -33,7 +34,11 @@ import Edge from "./ui/Edge.vue";
 			...
 		]
 
- * n.b. This will only work for linear presentation.
+ * n.b. This will only work for linear representation.
+ *      Vue libraries for complex representation
+ *        - vnodes: https://www.vuescript.com/node-visual-graph/
+ *        - flowchart-vue: https://www.vuescript.com/visualize-work-flow-chart/
+ *        - vue-flow: https://www.vuescript.com/customizable-flowchart/
  *
  * @param {Array} vertices List containing nodes and alarms
  * @param {Array} edges List containing links
