@@ -6,8 +6,7 @@
     :clearable="true"
     :rows="20"
     :autofocus="true"
-    :rounded="true"
-    label="Payload"
+    :error-messages="invalidJsonFormat"
   />
 </template>
 <script>
@@ -17,18 +16,35 @@ import colors from "vuetify/lib/util/colors";
 export default {
   name: "Payload",
   data: () => ({
+    invalidJsonFormat: [],
+    invalidJsonFormatMessage: "Invalid JSON format !!!",
     mdiCodeJson,
     greyLighten4: colors.grey.lighten4,
   }),
   methods: {
     inputValue(value) {
-      this.$emit("payload-change", value);
+      if (!value) {
+        this.invalidJsonFormat = [];
+        return;
+      }
+
+      let payload = null;
+
+      try {
+        payload = JSON.parse(value);
+        this.invalidJsonFormat = [];
+      } catch (err) {
+        payload = null;
+        this.invalidJsonFormat = [this.invalidJsonFormatMessage];
+      } finally {
+        this.$emit("payload-change", payload);
+      }
     },
   },
 };
 </script>
 <style>
 .v-input__slot {
-  padding: 10px;
+  padding: 4px 12px 10px;
 }
 </style>

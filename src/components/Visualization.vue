@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap mt-4">
+  <div v-if="payload" class="d-flex flex-wrap mt-4 ml-8">
     <div v-for="item in items" :key="item.id" class="mb-3">
       <Edge v-if="item.type === 'link'" :item="item" />
       <Vertex v-else :item="item" />
@@ -40,7 +40,7 @@ import Edge from "./ui/Edge.vue";
  * @Return {Array} ... List containing vertices and edges
  */
 const verticesLinkList = ({ vertices, edges }) =>
-  edges.reduce((acc, edge) => {
+  edges?.reduce((acc, edge) => {
     const verticesLink = vertices.filter(
       (vertex) => edge.source_id === vertex.id || edge.target_id === vertex.id
     ); // filter in linked vertices of an edge

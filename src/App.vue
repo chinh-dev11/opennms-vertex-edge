@@ -40,7 +40,7 @@
             <Payload @payload-change="payloadChange" />
           </v-col>
           <v-col cols="12" sm="7">
-            <Visualization v-if="payload" :payload="payload" />
+            <Visualization :payload="payload" />
           </v-col>
         </v-row>
       </v-container>
@@ -60,13 +60,7 @@ export default {
   }),
   methods: {
     payloadChange(value) {
-      try {
-        this.payload = JSON.parse(value);
-      } catch (err) {
-        //show error: invalid JSON format
-        // console.warn("App", err);
-        this.payload = null;
-      }
+      this.payload = value;
     },
   },
 };
