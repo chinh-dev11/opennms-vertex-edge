@@ -5,6 +5,8 @@
     :prepend-icon="mdiCodeJson"
     :clearable="true"
     :rows="20"
+    :autofocus="true"
+    :rounded="true"
     label="Payload"
   />
 </template>

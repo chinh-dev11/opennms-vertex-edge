@@ -34,12 +34,12 @@
     </v-app-bar>
 
     <v-main>
-      <v-container class="mt-12">
+      <v-container mt-12>
         <v-row>
-          <v-col class="col-4">
+          <v-col cols="12" sm="5">
             <Payload @payload-change="payloadChange" />
           </v-col>
-          <v-col class="col-8">
+          <v-col cols="12" sm="7">
             <Visualization v-if="payload" :payload="payload" />
           </v-col>
         </v-row>
