@@ -1,17 +1,18 @@
 <template>
   <v-textarea
     @input="inputValue"
-    :background-color="greyLighten4"
     :prepend-icon="mdiCodeJson"
     :clearable="true"
     :rows="20"
     :autofocus="true"
+    :background-color="greyLighten4"
     :error-messages="invalidJsonFormat"
+    data-test="v-textarea"
   />
 </template>
 <script>
 import { mdiCodeJson } from "@mdi/js";
-import colors from "vuetify/lib/util/colors";
+import colors from "vuetify/es5/util/colors";
 
 export default {
   name: "Payload",
