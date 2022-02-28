@@ -33,17 +33,16 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-content>
-        <v-container fluid fill-height>
-          <v-row>
-            <v-col cols="12" sm="5">
-              <Payload @payload-change="payloadChange" />
-            </v-col>
-            <v-col cols="12" sm="7">
-              <Visualization :payload="payload" />
-            </v-col>
-          </v-row> </v-container
-      ></v-content>
+      <v-container fluid fill-height>
+        <v-row>
+          <v-col cols="12" sm="5">
+            <Payload @payload-change="payloadChange" />
+          </v-col>
+          <v-col cols="12" sm="7">
+            <Visualization :payload="payload" />
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>

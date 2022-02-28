@@ -12,7 +12,7 @@ import Edge from "./ui/Edge.vue";
 
 /**
  * Combine vertices and edges into a list.
- * e.g. 
+ * e.g.
  *  [
 			{
 				"id": "n1",
@@ -57,7 +57,7 @@ const verticesLinkList = ({ vertices, edges }) =>
   }, []);
 
 export default {
-  name: "Graph",
+  name: "Visualization",
   components: { Vertex, Edge },
   props: {
     payload: {
